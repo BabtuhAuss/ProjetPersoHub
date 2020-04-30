@@ -10,7 +10,7 @@ typedef struct
 
 
 t_tableau alloue_tableau(int n);
-void destruct_tableau(t_tableau tab);
+void destruct_tableau(t_tableau * tab);
 void init_tableau(t_tableau tab);
 void display_tableau(t_tableau tab);
 t_tableau double_tableau(t_tableau tab);
