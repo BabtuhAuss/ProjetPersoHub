@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-#include "main.h"
+#include "main_allocation_tableau.h"
 
 using namespace std;
 
@@ -12,9 +12,6 @@ int main()
     init_tableau(tab);
     display_tableau(tab);
     destruct_tableau(&tab);
-
-    display_tableau(tab);
-    
 }
 
 t_tableau alloue_tableau(int n)
