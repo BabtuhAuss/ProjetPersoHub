@@ -1,17 +1,18 @@
 #include <iostream>
 #include <vector>
 #include <string>
-
+#include<cstdlib>
 #include "main_allocation_tableau.h"
 
 using namespace std;
 
-int main()
+int init_main_allocation()
 {
     t_tableau tab = alloue_tableau(5);
     init_tableau(tab);
     display_tableau(tab);
     destruct_tableau(&tab);
+    return 0;
 }
 
 t_tableau alloue_tableau(int n)
