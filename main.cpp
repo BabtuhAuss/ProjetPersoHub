@@ -2,17 +2,11 @@
 #include <vector>
 #include <string>
 
+#include "allocation_tableau/main_allocation_tableau.h"
+
 using namespace std;
 
 int main()
 {
-    vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
-    int i = 0;
-
-    for (const string& word : msg)
-    {
-        cout << word << " ";
-        i++;
-    }
-    cout << endl;
+    return init_main_allocation();
 }
