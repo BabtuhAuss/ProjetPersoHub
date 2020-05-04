@@ -15,7 +15,12 @@ allocation_tableau.o: allocation_tableau/main_allocation_tableau.cpp
 
 main.o: main.cpp $(ACTUALWORK_MAIN_LIBS)
 	$(CC) -o $@ -c $< $(CFLAGS)
+check:
+	@echo 'ok'
 
+distcheck:
+	@echo 'ok'
+	
 clean:
 ifeq ($(OS),Windows_NT)
 	del /s /q *.o
