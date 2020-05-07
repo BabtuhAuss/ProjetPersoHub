@@ -2,8 +2,8 @@ CC = g++
 CFLAGS=-W -Wall -ansi -pedantic
 LDFLAGS=
 EXEC=result
-ACTUALWORK_MAIN=allocation_tableau.o
-ACTUALWORK_MAIN_LIBS=allocation_tableau/main_allocation_tableau.h
+ACTUALWORK_MAIN=main_fondamentaux.o
+ACTUALWORK_MAIN_LIBS=fondamentaux/main_fondamentaux.h
 
 all: $(EXEC)
 
@@ -11,6 +11,9 @@ result: $(ACTUALWORK_MAIN) main.o
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 allocation_tableau.o: allocation_tableau/main_allocation_tableau.cpp
+	$(CC) -o $@ -c $< $(CFLAGS)
+
+main_fondamentaux.o: fondamentaux/main_fondamentaux.cpp
 	$(CC) -o $@ -c $< $(CFLAGS)
 
 main.o: main.cpp $(ACTUALWORK_MAIN_LIBS)
