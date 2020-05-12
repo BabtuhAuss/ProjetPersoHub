@@ -25,12 +25,17 @@ int ajoute_deux(int&);
 
 int nombre_secondes(int heures, int minutes = 0 , int seconde = 0);
 
+//vecteurs
 void moyenne(void);
 
+//fichiers
 void fichiers();
 void ecriture_fichier(string const& nomFichier);
 void lecture_fichier(string const& nomFichier);
-
 void taille_fichier(string nomFichier);
+
+//pointeurs
+void manipulation_pointeurs(void);
+void choisir_parmi_elements();
 
 #endif // MATH_H_INCLUDED

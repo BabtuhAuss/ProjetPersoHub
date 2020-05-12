@@ -2,8 +2,8 @@ CC = g++
 CFLAGS=-W -Wall -ansi -pedantic
 LDFLAGS=
 EXEC=result
-ACTUALWORK_MAIN=main_mystere.o
-ACTUALWORK_MAIN_LIBS=TP_mystere/main_mystere.h
+ACTUALWORK_MAIN=main_fondamentaux.o
+ACTUALWORK_MAIN_LIBS=fondamentaux/main_fondamentaux.h
 
 all: $(EXEC)
 

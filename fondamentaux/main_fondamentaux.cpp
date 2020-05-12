@@ -2,7 +2,7 @@
 
 int init_main_fondamentaux()
 {
-    fichiers();
+    manipulation_pointeurs();
     return 0;
 }
 
@@ -85,7 +85,6 @@ void fichiers()
     string const nomFichier("test.txt");
     lecture_fichier(nomFichier);
     taille_fichier(nomFichier);
-
 }
 void ecriture_fichier(string const &nomFichier)
 {
@@ -146,7 +145,6 @@ void lecture_fichier(string const &nomFichier)
             position = monFlux.tellg();
             cout << ligne << endl
                  << "position du curseur =" << position << endl;
-            
         }
 
         monFlux.close(); //fermeture du fichier
@@ -157,14 +155,102 @@ void lecture_fichier(string const &nomFichier)
     }
 }
 
-void taille_fichier(string nomFichier){
-    
-        ifstream fichier(nomFichier.c_str()); //On ouvre le fichier
-        fichier.seekg(0, ios::end); //On se déplace à la fin du fichier
+void taille_fichier(string nomFichier)
+{
 
-        int taille;
-        taille = fichier.tellg();
-        //On récupère la position qui correspond donc a la taille du fichier !
+    ifstream fichier(nomFichier.c_str()); //On ouvre le fichier
+    fichier.seekg(0, ios::end);           //On se déplace à la fin du fichier
 
-        cout << "Taille du fichier : " << taille << " octets." << endl;
+    int taille;
+    taille = fichier.tellg();
+    //On récupère la position qui correspond donc a la taille du fichier !
+
+    cout << "Taille du fichier : " << taille << " octets." << endl;
+}
+
+
+
+/* UTILISATION DES POINTEURS
+    gérer soi-même le moment de la création et de la destruction des cases mémoire ;
+
+    partager une variable dans plusieurs morceaux du code ;
+
+    sélectionner une valeur parmi plusieurs options.
+*/
+void manipulation_pointeurs()
+{
+    // IMPORTANT déclarez toujours vos pointeurs en les initialisant à l'adresse 0.
+
+    int ageUtilisateur(16);
+    /*On a déjà utilisé l'esperluette dans ce cours pour tout autre chose :
+    lors de la déclaration d'une référence. 
+    C'est le même symbole qui est utilisé pour deux choses différentes. 
+    Attention à ne pas vous tromper !*/
+    int *ptr(0);
+
+    ptr = &ageUtilisateur;
+
+    cout << "La valeur est :  " << *ptr << endl;
+
+    cout << "l'adresse de la variable est " << &ageUtilisateur << endl;
+
+    //allocation de la mémoire
+    int *pointeur(0);
+    pointeur = new int;
+
+    *pointeur = 2; //On accède à la case mémoire pour en modifier la valeur
+
+    //on fait les opérations ....
+
+    delete pointeur; //On libère la case mémoire
+    pointeur = 0;    // on dit que le pointeur ne vise plus rien
+
+    //exemple concrêt
+
+    pointeur = new int;
+
+    cout << "Quel est votre age ? ";
+    cin >> *pointeur;
+    //On écrit dans la case mémoire pointée par le pointeur 'pointeur'
+
+    cout << "Vous avez " << *pointeur << " ans." << endl;
+    //On utilise à nouveau *pointeur
+    delete pointeur; //Ne pas oublier de libérer la mémoire
+    pointeur = 0;    //Et de faire pointer le pointeur vers rien
+
+    choisir_parmi_elements();
+}
+
+void choisir_parmi_elements()
+{
+    string reponseA, reponseB, reponseC;
+    reponseA = "La peur des jeux de loterie";
+    reponseB = "La peur du noir";
+    reponseC = "La peur des vendredis treize";
+
+    cout << "Qu'est-ce que la 'kenophobie' ? " << endl; //On pose la question
+    cout << "A) " << reponseA << endl;                  //Et on affiche les trois propositions
+    cout << "B) " << reponseB << endl;
+    cout << "C) " << reponseC << endl;
+
+    char reponse;
+    cout << "Votre reponse (A,B ou C) : ";
+    cin >> reponse; //On récupère la réponse de l'utilisateur
+
+    string *reponseUtilisateur(0); //Un pointeur qui pointera sur la réponse choisie
+    switch (reponse)
+    {
+    case 'A':
+        reponseUtilisateur = &reponseA; //On déplace le pointeur sur la réponse choisie
+        break;
+    case 'B':
+        reponseUtilisateur = &reponseB;
+        break;
+    case 'C':
+        reponseUtilisateur = &reponseC;
+        break;
+    }
+
+    //On peut alors utiliser le pointeur pour afficher la réponse choisie
+    cout << "Vous avez choisi la reponse : " << *reponseUtilisateur << endl;
 }
