@@ -7,8 +7,6 @@
 #include <vector>
 #include<fstream>
 
-using namespace std;
-
 /**
  * \brief main des fondamentaux
  * \param rien
@@ -30,9 +28,9 @@ void moyenne(void);
 
 //fichiers
 void fichiers();
-void ecriture_fichier(string const& nomFichier);
-void lecture_fichier(string const& nomFichier);
-void taille_fichier(string nomFichier);
+void ecriture_fichier(std::string const& nomFichier);
+void lecture_fichier(std::string const& nomFichier);
+void taille_fichier(std::string nomFichier);
 
 //pointeurs
 void manipulation_pointeurs(void);

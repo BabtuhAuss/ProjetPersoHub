@@ -1,5 +1,7 @@
 #include "main_fondamentaux.h"
 
+using namespace std; 
+
 int init_main_fondamentaux()
 {
     manipulation_pointeurs();
