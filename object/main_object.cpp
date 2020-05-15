@@ -1,11 +1,16 @@
 #include <iostream>
 #include <string>
 #include "main_object.h"
-#include "Personnage.h"
 
 using namespace std;
 
 int init_main_object()
+{
+    manip_comparaisons();
+    return 0;
+}
+
+void manip_jeu()
 {
     Personnage goliath("Épée aiguisée", 20);
     Personnage david(goliath); //On crée david en copiant tous les attributs de goliath
@@ -24,12 +29,22 @@ int init_main_object()
     david.attaquer(goliath);
     goliath.changerArme("Double hache tranchante vénéneuse de la mort", 40);
     goliath.attaquer(david);
- 
+
     //Temps mort ! Voyons voir la vie de chacun…
     cout << "David" << endl;
     david.afficherEtat();
-    cout << endl << "Goliath" << endl;
+    cout << endl
+         << "Goliath" << endl;
     goliath.afficherEtat();
- 
-    return 0;
+}
+
+void manip_comparaisons()
+{
+    //Duree duree1(1, 10, 28), duree2(0, 15, 200);
+    Duree duree1(0, 10, 28), duree2(0, 9, 88);
+
+    if (duree1 == duree2)
+        cout << "Les durees sont identiques";
+    else
+        cout << "Les durees sont differentes";
 }

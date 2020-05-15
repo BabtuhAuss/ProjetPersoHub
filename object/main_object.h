@@ -2,9 +2,12 @@
 #define H_OBJECT
 
 #include <iostream>
-#include "Personnage.h"
+#include "Personnage/Personnage.h"
+#include "Temps/Duree.h"
 
 int init_main_object(void);
+void manip_comparaisons();
+void manip_jeu();
 
 #endif
 
