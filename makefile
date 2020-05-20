@@ -9,10 +9,10 @@ RM_WINDOWS = del /s /q
 RECWILDCARD	=	$(foreach d,$(wildcard $(1:=/*)),$(call RECWILDCARD,$d,$2) $(filter $(subst *,%,$2),$d))
 
 
-SRC		= \
-		$(wildcard object/*.cpp) \
-		$(wildcard object/*/*.cpp) \
-		main.cpp
+# SRC		= \
+# 		$(wildcard object/*.cpp) \
+# 		$(wildcard object/*/*.cpp) \
+# 		main.cpp
 
 SRC_C = $(call RECWILDCARD,.,*.cpp)
 

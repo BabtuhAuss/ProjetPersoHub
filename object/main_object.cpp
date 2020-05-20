@@ -40,11 +40,8 @@ void manip_jeu()
 
 void manip_comparaisons()
 {
-    //Duree duree1(1, 10, 28), duree2(0, 15, 200);
-    Duree duree1(0, 10, 28), duree2(0, 9, 88);
+    Duree duree1(2, 25, 28), duree2(0, 16, 33);
+    
+    cout <<  duree1 + duree2 << endl;
 
-    if (duree1 == duree2)
-        cout << "Les durees sont identiques";
-    else
-        cout << "Les durees sont differentes";
 }
