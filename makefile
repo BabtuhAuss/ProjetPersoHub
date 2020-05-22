@@ -21,9 +21,9 @@ OBJ		= $(SRC_C:.cpp=.o)
 
 all: $(EXEC)
 ifeq ($(DEBUG),yes)
-	@echo "Génération en mode debug"
+	@echo "Generation en mode debug"
 else
-	@echo "Génération en mode release"
+	@echo "Generation en mode release"
 endif
 
 
