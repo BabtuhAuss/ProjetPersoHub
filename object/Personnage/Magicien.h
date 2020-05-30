@@ -8,6 +8,7 @@
 class Magicien : public Personnage
 {
     public:
+        Magicien();
         void bouleDeFeu() const;
         void bouleDeGlace() const;
  
