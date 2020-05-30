@@ -6,8 +6,17 @@ using namespace std;
 
 int init_main_object()
 {
-    //manip_jeu();
+    manip_jeu_heritage();
     return 0;
+}
+
+void manip_jeu_heritage()
+{
+    Personnage marcel("Marcel");
+    marcel.sePresenter();
+
+    Magicien saruman("Saruman le sage");
+    saruman.sePresenter();
 }
 
 void manip_jeu_old()
@@ -38,12 +47,9 @@ void manip_jeu_old()
     // goliath.afficherEtat();
 }
 
-
-
 void manip_comparaisons()
 {
     Duree duree1(2, 25, 28), duree2(0, 16, 33);
-    
-    cout <<  duree1 + duree2 << endl;
 
+    cout << duree1 + duree2 << endl;
 }
