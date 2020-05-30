@@ -6,7 +6,7 @@ using namespace std;
 
 int init_main_object()
 {
-    manip_comparaisons();
+    manip_jeu();
     return 0;
 }
 
@@ -37,6 +37,8 @@ void manip_jeu()
          << "Goliath" << endl;
     goliath.afficherEtat();
 }
+
+
 
 void manip_comparaisons()
 {
