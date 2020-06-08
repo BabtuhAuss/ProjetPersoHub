@@ -3,30 +3,58 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
+
+//Une classe qui possède au moins une méthode virtuelle pure est une classe abstraite. Notre classe
+//Vehicule est donc une classe abstraite
 class Vehicule
 {
-    public:
-    virtual void affiche() const;  //Affiche une description du Vehicule
+public:
+    Vehicule(int prix, int anneeFabrication); //Construit un véhicule d'un certain prix
+    virtual void affiche() const;
+    virtual ~Vehicule(); //Remarquez le 'virtual' ici
+    virtual int nbrRoues() const=0;
 
-    protected:
-    int m_prix;  //Chaque véhicule a un prix
+protected:
+    int m_prix;
+    int m_dateFabrication;
 };
 
-class Voiture: public Vehicule  //Une Voiture EST UN Vehicule
+class Camion : public Vehicule
 {
-    public:
+public:
+    Camion(int prix, int poidTransportable, int anneeFabrication);
     virtual void affiche() const;
+    virtual ~Camion();
+    virtual int nbrRoues() const;
 
-    private:
-    int m_portes;  //Le nombre de portes de la voiture
+protected:
+    int m_poidTransportable;
 };
 
-class Moto : public Vehicule  //Une Moto EST UN Vehicule
+class Voiture : public Vehicule
 {
-    public:
+public:
+    Voiture(int prix, int portes, int anneeFabrication);
+    //Construit une voiture dont on fournit le prix et le nombre de portes
     virtual void affiche() const;
- 
-    private:
-    double m_vitesse;  //La vitesse maximale de la moto
+    virtual ~Voiture();
+    virtual int nbrRoues() const;
+
+private:
+    int m_portes;
+};
+
+class Moto : public Vehicule
+{
+public:
+    Moto(int prix, double vitesseMax, int anneeFabrication);
+    //Construit une moto d'un prix donné et ayant une certaine vitesse maximale
+    virtual void affiche() const;
+    virtual ~Moto();
+    virtual int nbrRoues() const;
+
+private:
+    double m_vitesse;
 };
 #endif
