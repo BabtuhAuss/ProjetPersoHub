@@ -14,6 +14,7 @@ public:
     virtual void affiche() const;
     virtual ~Vehicule(); //Remarquez le 'virtual' ici
     virtual int nbrRoues() const=0;
+    
 
 protected:
     int m_prix;
